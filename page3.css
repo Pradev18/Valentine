@@ -1,0 +1,196 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+body{
+  background: url(https://subtlepatterns.com/patterns/noise_lines.png);
+  font-family: 'Pacifico', cursive;
+  overflow: hidden;
+  color: #fff;
+  
+
+  
+  background-image: url(https://assets.codepen.io/4927073/Group2.png), url(https://assets.codepen.io/4927073/Background6.png);
+  background-image: url(https://assets.codepen.io/4927073/Group2.png), linear-gradient(33deg, #edf2f7, #edf2f7);
+  background-image: url(https://assets.codepen.io/4927073/Group2.png),  linear-gradient(33deg, #ff0400, #ff0400);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+ .container{
+  position: relative;
+  margin: 10px auto 0 auto;
+  width: 250px;
+}
+
+
+.ico{
+  display: block;
+  width: 500px;
+  height: 500px;
+}
+.open .ico{
+  animation: open 4s;
+  transform: scale(10);
+}
+.ico .title{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: 50px;
+  margin-top: -150px;
+  z-index: 4;
+  font-size: 45px;
+  font-family: 'Pacifico', cursive;
+  color: #fff;
+  cursor: pointer;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+.open .ico .title{
+  opacity: 0;
+  transition: all 0.3s ease;
+  top:-100px;
+}
+.ico:before,
+.ico:after,
+.ico2:before,
+.ico2:after{
+  position: absolute;
+  top:0;
+  left:0;
+}
+.ico:before,
+.ico:after,
+.ico2:before,
+.ico2:after{
+  display: block;
+  font-size: 30em;
+  color: #ff0055;
+  content: "\f004";
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ico2:before,
+.ico2:after{
+  color: #e91e63;
+}
+.ico:before{
+  z-index: 3;
+}
+.ico:after{
+  animation: explode 4s infinite;
+}
+
+
+.ico2:before{
+  animation: explodeSmall 3s infinite;
+}
+.ico2:after{
+  animation: explodeSmall 2s infinite;
+}
+
+
+.endtext{
+  opacity:0;
+  position: absolute;
+  top:-100px;
+  width:100%;
+}
+.open .endtext{
+  top:0;
+  opacity: 1;
+  animation: show 5s;
+}
+.endtext .close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+.endtext h1,
+.endtext h2,
+.endtext h3{
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  text-align: center;
+  font-weight: normal;
+}
+.endtext h1{
+  font-size: 50px;
+}
+.endtext h2{
+  font-size: 30px;
+}
+.endtext h3{
+  font-size: 20px;
+}
+
+
+@keyframes explode {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.6);
+      opacity: 0;
+    }
+}
+@keyframes explodeSmall {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+
+
+@keyframes open {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(10);
+    }
+}
+
+@keyframes show {
+    from {
+      opacity: 0;
+      top: -100px;
+    }
+    to {
+      opacity: 1;
+      top:0;
+    }
+} 
+
+@media (max-width: 675px) {
+  body {
+    overflow: visible; /* Allow overflow for mobile devices */
+  }
+
+  .envelope {
+    width: 80vw; /* Adjust envelope width for better mobile display */
+    left: 10%; /* Adjust left position for better centering on mobile */
+    top: 5%; /* Adjust top position for better spacing on mobile */
+  }
+
+  .card {
+    height: 330px;
+    width: 80vw; /* Adjust card width for better mobile display */
+    left: 10%; /* Adjust left position for better centering on mobile */
+  }
+
+  .text-container {
+    font-size: 16px; /* Adjust font size for better mobile readability */
+  }
+
+  h4 {
+    top: 2%; /* Adjust top position for better spacing on mobile */
+    font-size: 18px; /* Adjust font size for better mobile readability */
+    padding: 10px; /* Adjust padding for better spacing on mobile */
+  }
+}

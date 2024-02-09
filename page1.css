@@ -1,0 +1,155 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pacifico', cursive;
+  background: #fafafa;
+  margin: auto;
+  background-image: url(https://assets.codepen.io/4927073/Group2.png), url(https://assets.codepen.io/4927073/Background6.png);
+  background-image: url(https://assets.codepen.io/4927073/Group2.png), linear-gradient(33deg, #edf2f7, #edf2f7);
+  background-image: url(https://assets.codepen.io/4927073/Group2.png),  linear-gradient(33deg, #ff0400, #ff0400);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+body > * + * {
+  margin-right: 24px;
+}
+.center-container {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20%;
+  
+} 
+:root {
+  --transition: 0.3;
+  --heart-fill: #e63b19;
+}
+.heart {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.heart--stroke {
+  stroke: var(--heart-stroke);
+  stroke-width: 2.5px;
+  fill: none;
+}
+.heart--fill {
+  stroke: none;
+  fill: var(--heart-fill);
+  transform: scale(var(--scale, 0));
+}
+.heart__particle {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: hsl(var(--h), 80%, 70%);
+  transform: translate(-50%, -50%) rotate(calc(var(--r, 0) * 1deg)) translate(0, calc(var(--radius, 0) * 1px)) scale(0);
+}
+.button {
+  height: 80px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  font-family: sans-serif;
+  text-align: left;
+  outline: transparent;
+  color: var(--stroke);
+  background: var(--fill);
+  background: hsl(var(--hue), calc(var(--saturation) * 1%), calc(var(--lightness) * 1%));
+  box-shadow: 2px 4px 4px rgba(26,26,26,0.5);
+  transition: box-shadow 0.2s, background 0.2s;
+  margin-left: 30%;
+  
+}
+.button--primary {
+  --hue: 260;
+  --saturation: 50;
+  --lightness: 20;
+  --stroke: #fff;
+  --heart-stroke: #fff;
+  margin-right: 24px;
+}
+.button--secondary {
+  --hue: 0;
+  --saturation: 0;
+  --lightness: 100;
+  --stroke: #666;
+  --heart-stroke: #999;
+}
+.button__text {
+  font-size: 30px;
+  margin-right: 50px;
+  opacity: var(--opacity);
+}
+.button__icon {
+  position: relative;
+  height: 24px;
+  width: 24px;
+}
+.button:hover {
+  --scale: 0.3;
+  background: hsl(var(--hue), calc(var(--saturation) * 1%), calc(var(--lightness) * 0.96%));
+  box-shadow: 2px 2px 4px rgba(26,26,26,0.5);
+}
+.button:hover .heart--fill {
+  transition: transform calc(var(--transition) * 1s) cubic-bezier(0.7, 0.9, 0.6, 2.5);
+}
+.button:active {
+  background: hsl(var(--hue), calc(var(--saturation) * 1%), calc(var(--lightness) * 0.92%));
+  box-shadow: 0 0 0 rgba(26,26,26,0.5);
+}
+.button--active,
+.button--active:hover {
+  --scale: 0.94;
+  --opacity: 0.25;
+}
+.button--active .heart--fill,
+.button--active:hover .heart--fill {
+  transition: transform calc(var(--transition) * 1s) cubic-bezier(0.7, 0.9, 0.6, 2.5);
+}
+.button--active .button__text,
+.button--active:hover .button__text {
+  transition: opacity 0.1s;
+}
+.button--active .heart__particle,
+.button--active:hover .heart__particle {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(calc(var(--r, 0) * 1deg)) translate(0, calc(var(--d, 0) * 1px)) scale(var(--s));
+  transition: transform calc(var(--t) * 1.25s) calc(var(--transition) * 0.5s), opacity calc(var(--transition) * 0.25s) calc(var(--t) * 1.25s);
+}
+
+@media (max-width: 768px) {
+  body {
+    background-size: auto; /* Adjust background size for better mobile display */
+  }
+
+  .center-container {
+    font-size: 18px; /* Adjust font size for better mobile readability */
+  }
+
+  .button {
+    width: 150px; /* Adjust button width for better mobile display */
+    height: 50px; /* Adjust button height for better mobile display */
+    margin-left: 5%; /* Adjust margin for better spacing on mobile */
+  }
+
+  .button__text {
+    font-size: 16px; /* Adjust font size for better mobile readability */
+    margin-right: 10px; /* Adjust margin for better spacing on mobile */
+  }
+}
